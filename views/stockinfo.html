@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<h1>Let's find some stock information</h1>
+		<div>
+			<p>Enter a stock ticker to get some information</p>
+			<form action="/stockinfo" method="get">
+                <input type="text" name="ticker" value="{{ticker}}">
+                <input type="submit" value="Submit">
+			</form>
+        </div>
+        <div style="margin-top: 10px;">
+            {{#valid}}
+            <div>Name: {{name}}</div>
+            <div>Price: ${{stockinfo}}</div>
+            <div>Change: {{change}}%</div>
+            {{/valid}}
+            {{^valid}}
+            <div style="color: red">Ticker {{ticker}} is invalid</div>
+            {{/valid}}
+        </div>
+	</body>
+</html>
